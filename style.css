@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.cdnfonts.com/css/bankgothic-md-bt');
+* {
+    margin:  0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+#Titulo {
+    background-image: url('img/titulo.png');
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.5em;
+    height: 100vh;
+}
+#Titulo .modo {
+    display: flex;
+    flex-direction: column;
+}
+#Titulo h1 {
+    margin-top: 20vh;
+    font-size: 2.5em;
+    font-family: 'BankGothic', sans-serif;
+}
+#Titulo h2 {
+    font-size: 1.1em;
+    text-align: end;
+    font-family: 'BankGothic', sans-serif;
+}
+#Titulo .listaTitulo{
+    margin-top: 50PX;
+    letter-spacing: 0.15em;
+    text-decoration: underline;
+}
+#Titulo .listaTitulo li {
+    list-style: none;
+    margin-bottom: 10px;
+}
+#Titulo .listaTitulo li a{
+    list-style: none;
+    color: black;
+}
+#Cafetería {
+    height: 100vh;
+    background-image: url('img/fondo.png');
+    background-position: center;
+    background-size: cover;
+}
+#Cafetería .TituloPagina{
+    margin-top: 40px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#Cafetería .TituloPagina h2 {
+    font-weight: 900;
+    font-size: 2em;
+}
+#Cafetería .TituloPagina h4 {
+    font-weight: 300;
+    font-size: 1em;
+}
+#Cafetería .data {
+    padding: 0px 75px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+#Cafetería .data h3 {
+    font-size: 1.5em;
+    font-weight: 900;
+    margin-bottom: 5px;
+}
+#Cafetería .data .producto {
+    font-size: 1em;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+#Cafetería .data .nameProduct {
+    font-weight: 500;
+    font-family: 'Montserrat', sans-serif;
+}
+#Cafetería .data .precio {
+    font-weight: 500;
+    font-family: 'Montserrat', sans-serif;
+}
