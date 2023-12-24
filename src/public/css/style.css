@@ -1,0 +1,576 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.cdnfonts.com/css/bankgothic-md-bt');
+@import url('https://fonts.cdnfonts.com/css/glacial-indifference-2');
+@import url('https://db.onlinewebfonts.com/c/174a032e6fa07cdb1882a700d67dad1d?family=Anteb+Alt+Black');
+* {
+    margin:  0;
+    box-sizing: border-box;
+    font-family: "Anteb Alt Black";
+    text-decoration: none;
+    scroll-behavior: smooth;
+}
+html {
+}
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.menu {
+   
+    z-index: 100000;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    top: 0;
+    transition: 0.5s;
+    left: -300px;
+    width: 300px; 
+    height: 100vh;
+    background-color:rgba(212,210,207,255);
+}
+.venir {
+    left: 0;
+}
+.menu h2{
+    margin-top: 80px;
+    font-size: 2.2em;
+    font-family: 'BankGothic', sans-serif;
+}
+.menu h3 {
+    font-size: 1.1em;
+    text-align: center;
+    font-family: 'BankGothic', sans-serif;
+}
+.menu .listaTitulo{
+    padding-left: 0;
+    margin-top: 50PX;
+    letter-spacing: 0.15em;
+    text-decoration: underline;
+}
+.menu .listaTitulo li {
+    list-style: none;
+    margin-bottom: 20px;
+}
+.menu .listaTitulo li a{
+    list-style: none;
+    font-size: 1em;
+    font-family: 'Poppins', sans-serif;
+    color: black;
+}
+.burger {
+    z-index: 10000000000;
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    width: 40px;
+    height: 30px;
+    background: transparent;
+    cursor: pointer;
+    display: block;
+  }
+  
+  .burger input {
+    display: none;
+  }
+  
+  .burger span {
+    display: block;
+    position: absolute;
+    height: 4px;
+    width: 100%;
+    background: black;
+    border-radius: 9px;
+    opacity: 1;
+    left: 0;
+    transform: rotate(0deg);
+    transition: .25s ease-in-out;
+  }
+  
+  .burger span:nth-of-type(1) {
+    top: 0px;
+    transform-origin: left center;
+  }
+  
+  .burger span:nth-of-type(2) {
+    top: 50%;
+    transform: translateY(-50%);
+    transform-origin: left center;
+  }
+  
+  .burger span:nth-of-type(3) {
+    top: 100%;
+    transform-origin: left center;
+    transform: translateY(-100%);
+  }
+  
+  .burger input:checked ~ span:nth-of-type(1) {
+    transform: rotate(45deg);
+    top: 0px;
+    left: 5px;
+  }
+  
+  .burger input:checked ~ span:nth-of-type(2) {
+    width: 0%;
+    opacity: 0;
+  }
+  
+  .burger input:checked ~ span:nth-of-type(3) {
+    transform: rotate(-45deg);
+    top: 28px;
+    left: 5px;
+  }
+#Titulo {
+    background-image: url('/img/titulo.png');
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.5em;
+    height: 100vh;
+}
+#Titulo .modo {
+    display: flex;
+    flex-direction: column;
+}
+#Titulo h1 {
+    margin-top: 20vh;
+    font-size: 2.5em;
+    font-family: 'BankGothic', sans-serif;
+}
+#Titulo h2 {
+    font-size: 1.1em;
+    text-align: end;
+    font-family: 'BankGothic', sans-serif;
+}
+#Titulo .listaTitulo{
+    padding-left: 0;
+    margin-top: 50PX;
+    letter-spacing: 0.15em;
+    text-decoration: underline;
+}
+#Titulo .listaTitulo li {
+    list-style: none;
+    margin-bottom: 20px;
+}
+#Titulo .listaTitulo li a{
+    list-style: none;
+    font-size: 0.8em;
+    font-family: 'Poppins', sans-serif;
+    color: black;
+}
+#Cafetería {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url('/img/cafetería.png');
+    background-position: center;
+    background-size: cover;
+}
+#Cafetería .TituloPagina{
+    margin-top: 40px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#Cafetería .TituloPagina h2 {
+    font-weight: 900;
+    font-size: 2em;
+}
+#Cafetería .TituloPagina h4 {
+    font-family: 'Glacial Indifference', sans-serif;
+    font-style: italic;                                            
+    font-weight: 300;
+    font-size: 1em;
+}
+#dataCafeteria, #dataDesayunos, #dataBrunch, #dataPatisserie, #dataTortas, #dataSandwiches, #dataEnsaladas, #dataJugos, #dataRedes {
+    max-width: 700px;
+    width: 75%;
+}
+#Cafetería #dataCafeteria{
+    width: 100%;
+    padding: 0px 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+#Cafetería #dataCafeteria h3{
+    font-size: 1.5em;
+    font-weight: 900;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+#Cafetería #dataCafeteria .producto, #Patisserie #dataPatisserie .producto, #Tortas #dataTortas .producto, #Ensaldas #dataEnsaladas .producto, #Jugos #dataJugos .producto   {
+    font-size: 1.1em;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+#Cafetería #dataCafeteria .nameProduct, #Patisserie #dataPatisserie .nameProduct, #Tortas #dataTortas .nameProduct, #Ensaldas #dataEnsaladas .nameProduct, #Jugos #dataJugos .nameProduct {
+    letter-spacing: 2px;
+    font-weight: 500;
+    font-family: 'Glacial Indifference', sans-serif;                                               
+}
+#Cafetería #dataCafeteria .precio, #Patisserie #dataPatisserie .precio, #Tortas #dataTortas .precio, #Ensaldas #dataEnsaladas .precio, #Jugos #dataJugos .precio  {
+    font-weight: 500;
+    font-family: 'Glacial Indifference', sans-serif;                                               
+}
+#Cafetería .pie {
+    margin-top: 10px;
+    font-weight: 300;
+    font-size: 1em;
+    font-style: italic;
+    font-family: 'Glacial Indifference', sans-serif;   
+}
+/*** DESAYUNOS */
+#Desayunos, #Brunch, #Patisserie, #Tortas, #Sandwiches, #Ensaladas, #Jugos, #Redes {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url('/img/desayuno.png');
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+#Desayunos .TituloPagina, #Brunch .TituloPagina, #Tortas .TituloPagina, #Sandwiches .TituloPagina{
+    margin-top: 40px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#Desayunos .TituloPagina h2, #Brunch .TituloPagina h2, #Patisserie h2, #Tortas .TituloPagina h2, #Sandwiches .TituloPagina h2, #Ensaldas .TituloPagina h2 {
+    font-weight: 900;
+    font-size: 2em;
+}
+#Desayunos .TituloPagina h4, #Brunch .TituloPagina h4 {
+    font-family: 'Glacial Indifference', sans-serif;
+    font-style: italic;                                            
+    font-weight: 300;
+    font-size: 1em;
+}
+#Desayunos .NombrePrecio, #Brunch .NombrePrecio, #Sandwiches .NombrePrecio {
+    margin-top: 50px;
+    height: calc(95vh - 148px);
+    padding: 0 20px;
+    display: grid;
+    grid-template-rows: repeat(5,1fr);
+    grid-template-columns: repeat(2,1fr);
+    grid-column-gap: 30px
+}
+#Desayunos #dataDesayunos .producto, #Brunch #dataBrunch .producto, #Sandwiches #dataSandwiches .producto,  #Ensaladas #dataEnsaladas .producto, #Jugos #dataJugos .producto{
+    flex-grow: 1;
+    flex-basis: 50%;
+    font-size: 1.1em;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+#Desayunos #dataDesayunos .producto img, #Brunch #dataBrunch .producto img {
+    width: 100%;
+    height: auto;
+    max-width: 175px;
+    align-self: flex-end;
+}
+#Desayunos #dataDesayunos .producto .priceName, #Brunch #dataBrunch .producto .priceName, #Sandwiches #dataSandwiches .producto .priceName, #Ensaladas #dataEnsaladas .producto .priceName, #Jugos #dataJugos .producto .priceName {
+    display: flex;
+    justify-content: space-between;
+    
+}
+#Desayunos #dataDesayunos .nameProduct, #Brunch #dataBrunch .nameProduct, #Sandwiches #dataSandwiches .nameProduct, #Ensaladas #dataEnsaladas .nameProduct, #Jugos #dataJugos .nameProduct  {
+    font-size: 1.2em;
+    font-weight: 900;                                         
+}
+#Desayunos #dataDesayunos .precio, #Brunch #dataBrunch .precio, #Sandwiches #dataSandwiches .precio, #Ensaladas #dataEnsaladas .precio, #Jugos #dataJugos .precio {
+    font-size: 1.2em;
+    font-weight: 900;                                          
+}
+#Brunch #dataBrunch .producto h4, #Sandwiches #dataSandwiches .producto h4, #Ensaladas #dataEnsaladas .producto h4, #Jugos #dataJugos .producto h4 {
+    font-weight: 400;
+    margin-top: 10px;
+    font-size: 0.9em;
+    letter-spacing: 1.45px;
+    font-family: 'Glacial Indifference', sans-serif;
+}
+#Desayunos #dataDesayunos .producto h4 {
+    font-weight: 400;
+    margin-top: 10px;
+    font-size: 0.8em;
+    letter-spacing: 1.45px;
+    font-family: 'Glacial Indifference', sans-serif;
+}
+/*Brunch*/
+#Brunch {
+    background-image: url('/img/brunch.png');
+}
+#Brunch .NombrePrecio {
+    grid-template-rows: repeat(4,1fr);
+}
+#Brunch #dataBrunch .producto img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    align-self: center;
+}
+/*Patisserie*/
+#Patisserie {
+    background-image: url('/img/patisierre.png');
+}
+#Patisserie #dataPatisserie .Datos, #Ensaladas #dataEnsaladas .Datos, #Jugos #dataJugos .Datos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#Patisserie #dataPatisserie h2, #Jugos #dataJugos h2 {
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+#Patisserie #dataPatisserie h3, #Ensaladas #dataEnsaladas h3, #Jugos #dataJugos h3 {
+    margin-top: -20px;
+    font-family: 'Glacial Indifference', sans-serif;
+    font-style: italic;                                            
+    font-weight: 300;
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+#Patisserie #dataPatisserie .Datos .NombrePrecio, #Tortas #dataTortas .Datos .NombrePrecio{
+    width: 100%;
+    font-size: 1.2em;
+    display: flex;
+    flex-direction: column;
+}
+#Patisserie #dataPatisserie .Datos .NombrePrecio .producto{
+    margin-bottom: 10px;
+}
+/*Tortas */
+#Tortas {
+    background-image: url('/img/tortas.png');
+}
+#Tortas #dataTortas {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#Tortas #dataTortas .Datos {
+    width: 100%;
+}
+#Tortas #dataTortas .Datos .producto {
+    font-size: 1.4em;
+    margin-bottom: 15px;
+}
+#Tortas #dataTortas img {
+    max-width: 394px;
+    width: 100%;
+    flex-grow: 1;
+}
+#Tortas #dataTortas {
+    height: calc(100vh - 98px);
+}
+/* Sandwiches */
+#Sandwiches {
+    background-image: url('/img/sandwiches.png');
+}
+#Sandwiches .NombrePrecio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#Sandwiches #dataSandwiches .producto  {
+    flex-grow:initial;
+    flex-basis: auto;
+    width: 100%;
+    margin-bottom: 5px;
+}
+#Sandwiches #dataSandwiches .producto .priceName .nameProduct, #Ensaladas #dataEnsaladas .producto .priceName .nameProduct, #Jugos #dataJugos .producto .priceName .nameProduct  {
+    letter-spacing: 1.45px;
+}
+#Sandwiches #dataSandwiches .producto , #Ensaladas #dataEnsaladas .producto h4, #Jugos #dataJugos .producto h4 {
+    margin-top: 5px;
+    font-size: 1.1em;
+    font-style: italic;
+}
+#Sandwiches .NombrePrecio {
+    margin-top: 0;
+}
+/*Ensaladas*/
+#Ensaladas {
+    background-image: url('/img/ensaladas.png');
+}
+#Ensaladas #dataEnsaladas h2 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+#Ensaladas #dataEnsaladas .mayor {
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+#Ensaladas #dataEnsaladas .NombrePrecio {
+    width: 100%;
+}
+#Ensaladas #dataEnsaladas .producto {
+    width: 100%;
+    margin-bottom: 8px;
+}
+/*Jugos*/
+#Jugos {
+    background-image: url('/img/jugos.png');
+}
+#Jugos .flechaAdi {
+    display: flex;
+    justify-content: center;
+}
+#Jugos .flechaContainer {
+    justify-content: flex-end;
+    display: flex;
+    flex: 1;
+}
+#Jugos .flecha {
+    width: 150px;
+    height: 70px;
+}
+#Jugos #dataJugos {
+    width: 75%;
+}
+#Jugos #dataJugos .BEBIDAS {
+    padding-right: 8px;
+}
+#Jugos #dataJugos .ALCOHOL {
+    padding-left: 8px;
+}
+
+#Jugos #dataJugos .NombrePrecio {
+    width: 100%;
+}
+#Jugos #dataJugos .derecha {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    text-align: end;
+    margin-top: 10px;
+}
+#Jugos #dataJugos .derecha .priceName .precio {
+    margin-left: 10px;
+}
+#Jugos #dataJugos .producto {
+    margin-bottom: 0;
+}
+#Jugos #dataJugos .producto .max {
+    max-width: 400px;
+}
+#Jugos #dataJugos .producto .consultar {
+    font-style: normal;
+    font-weight: 900;
+    margin-bottom: 10px;
+}
+#Jugos #dataJugos .Bebidas {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+#Jugos #dataJugos .Bebidas .Datos {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#Jugos #dataJugos .Bebidas .Datos .NombrePrecio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#Jugos #dataJugos .Bebidas .Datos .NombrePrecio .producto {
+    display: flex;
+    margin-top: 7px;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+}
+#Jugos #dataJugos .Bebidas .nameProduct {
+    font-size: 1em;
+    font-weight: 200;
+}
+#Jugos #dataJugos .Bebidas .precio {
+    font-size: 1em;
+    font-weight: 200;
+}
+/*Redes*/
+#Redes {
+    background-image: url('/img/titulo.png');
+    justify-content: center;
+}
+#Redes #dataRedes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#Redes #dataRedes .redes {
+    text-decoration: none;
+    list-style: none;
+    padding: 0;
+}
+#Redes #dataRedes .redes li a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#Redes #dataRedes .redes li h3 {
+    color: black;
+    font-family: 'Glacial Indifference', sans-serif;
+    font-size: 2em;
+    font-weight: 500;
+}
+#Redes #dataRedes .datosWifi {
+    display: flex;
+    position: absolute;
+    bottom: 20px;
+    height: 80px;
+    align-items: center;
+}
+#Redes #dataRedes .datosWifi img{
+    height: 80%;
+    width: auto;
+}
+#Redes #dataRedes .datosWifi .wifi {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+    font-size: 1.2em;
+}
+#Redes #dataRedes .datosWifi .wifi h4 {
+    font-family: 'Glacial Indifference', sans-serif;
+    font-weight: 500;
+}
+
+/*MediaQuerys */
+@media only screen and (max-width: 510px) {
+    html{
+        font-size: 95%;
+    }
+    #Cafetería .pie {
+        margin-top: 30px;
+    }
+}
+@media only screen and (max-width: 495px) {
+    html{
+        font-size: 90%;
+    }
+    #Cafetería .pie {
+        margin-top: 50px;
+    }
+}
+@media only screen and (max-width: 460px) {
+    html{
+        font-size: 85%;
+    }
+    #Cafetería .pie {
+        margin-top: 70px;
+    }
+}
