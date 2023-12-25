@@ -2,9 +2,32 @@
 const ham = document.getElementById("burger")
 const labelHam = document.querySelector(".burger")
 const menu = document.querySelector(".menu")
+const searchBar = document.getElementById("searchBar")
+const searchBarFalso = document.getElementById("searchBarFalso")
+const linkmenu = document.querySelectorAll(".linkmenu")
+for(let i = 0;i<linkmenu.length;i++) {
+  linkmenu[i].addEventListener("click",(e)=> {
+    event.stopPropagation()
+    if(ham.checked) {
+      ham.checked = false;
+      menu.classList.remove("venir")
+    }
+  })
+}
+
+window.addEventListener("click",(e)=> {
+    if(ham.checked) {
+      ham.checked = false;
+      menu.classList.remove("venir")
+    }
+    event.stopPropagation()
+
+})
 ham.addEventListener("click",()=> {
   menu.classList.toggle("venir")
+  event.stopPropagation()
 })
+
 window.addEventListener("scroll",()=> {
   if (window.innerHeight > window.scrollY) {
     if(ham.checked) {
@@ -15,6 +38,43 @@ window.addEventListener("scroll",()=> {
   } else {
     labelHam.style.display = "block"
   }
+})
+searchBarFalso.addEventListener("focus",(e)=> {
+  searchBar.focus()
+})
+searchBar.addEventListener("input",(e)=> {
+  var h5Element = document.querySelectorAll('.yellow');
+  for(let i = 0;i<h5Element.length;i++) {
+      h5Element[i].parentElement.replaceChild(document.createTextNode(h5Element[i].textContent),h5Element[i]);
+  }
+  var textoBuscado = e.target.value.toLowerCase()
+  if(textoBuscado.length != 0) {
+
+  function searchInTextContent(elemento, textoBuscado) {
+    return elemento.textContent.toLowerCase().includes(textoBuscado);
+  }
+  var todosLosElementos = document.querySelectorAll(".nameProduct, h4, h2");
+  var elementosCoincidentes = Array.from(todosLosElementos).filter(function(elemento) {
+    return searchInTextContent(elemento, textoBuscado);
+  });
+  if (elementosCoincidentes.length > 0) {
+    const elementoCoincidente = elementosCoincidentes[0];
+    const posicionAjustada = elementoCoincidente.getBoundingClientRect().top + window.scrollY - 90;
+    window.scrollTo({
+      top: posicionAjustada,
+      behavior: 'smooth' 
+    });
+  }
+  for(let i = 0; i<elementosCoincidentes.length;i++) {
+    const highlightedText = elementosCoincidentes[i].textContent.replace(
+      new RegExp(textoBuscado, 'gi'),
+      match => `<span class="yellow">${match}</span>`
+  );
+
+  // Mostrar el texto resaltado
+  elementosCoincidentes[i].innerHTML = highlightedText;
+  }
+}
 })
 
 
@@ -242,7 +302,7 @@ const Cafeteria = (datos)=>{
          }
 
 
-   fetch('data').then(res=> {
+   fetch('/archivoDatos').then(res=> {
     if(!res.ok) {
       throw new Error("Error al obtener los datos")
     }

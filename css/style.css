@@ -140,7 +140,7 @@ body {
     font-size: 2.5em;
     font-family: 'BankGothic', sans-serif;
 }
-#Titulo h2 {
+#Titulo h3 {
     font-size: 1.1em;
     text-align: end;
     font-family: 'BankGothic', sans-serif;
@@ -161,6 +161,35 @@ body {
     font-family: 'Poppins', sans-serif;
     color: black;
 }
+.InputBusqueda {
+    width: 80%;
+    background-color: #f5f5f5;
+    color: #242424;
+    padding: .15rem .5rem;
+    min-height: 40px;
+    border-radius: 4px;
+    font-family: 'Glacial Indifference', sans-serif;
+    outline: none;
+    border: none;
+    line-height: 1.15;
+    top: 90vh;
+    position: absolute;
+    box-shadow: 0px 10px 20px -18px;
+  }
+  
+  .InputBusqueda:focus {
+    border-bottom: 2px solid #5b5fc7;
+    border-radius: 4px 4px 2px 2px;
+    z-index: 99999999999999999999999;
+    position: fixed;
+  }
+  
+  .InputBusqueda:hover {
+    outline: 1px solid lightgrey;
+  }
+  .yellow {
+    background-color: yellow;
+  }
 #Cafetería {
     min-height: 100vh;
     display: flex;
@@ -563,6 +592,10 @@ body {
     #Cafetería .pie {
         margin-top: 30px;
     }
+    #Jugos .flecha {
+        width: 120px;
+        height: 60px;
+    }
 }
 @media only screen and (max-width: 495px) {
     html{
@@ -586,6 +619,10 @@ body {
     }
     #Cafetería .pie {
         margin-top: 70px;
+    }
+    #Jugos .flecha {
+        width: 100px;
+        height: 50px;
     }
 }
 @media only screen and (max-width: 360px) {
