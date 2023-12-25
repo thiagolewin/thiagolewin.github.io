@@ -129,7 +129,7 @@ body {
     flex-direction: column;
     align-items: center;
     font-size: 1.5em;
-    height: 100vh;
+    min-height: 100vh;
 }
 #Titulo .modo {
     display: flex;
@@ -162,7 +162,7 @@ body {
     color: black;
 }
 #Cafetería {
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -229,7 +229,7 @@ body {
 }
 /*** DESAYUNOS */
 #Desayunos, #Brunch, #Patisserie, #Tortas, #Sandwiches, #Ensaladas, #Jugos, #Redes {
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -255,9 +255,12 @@ body {
     font-weight: 300;
     font-size: 1em;
 }
+#Desayunos #dataDesayunos, #Brunch #dataDesayunos{
+    min-height: calc(100vh - 148px);
+    display: flex;
+}
 #Desayunos .NombrePrecio, #Brunch .NombrePrecio, #Sandwiches .NombrePrecio {
-    margin-top: 50px;
-    height: calc(95vh - 148px);
+    max-height: 80%;
     padding: 0 20px;
     display: grid;
     grid-template-rows: repeat(5,1fr);
@@ -271,6 +274,9 @@ body {
     display: flex;
     flex-direction: column;
     margin-bottom: 15px;
+}
+#Desayunos #dataDesayunos .producto, #Brunch #dataBrunch .producto {
+    margin-bottom: 0;
 }
 #Desayunos #dataDesayunos .producto img, #Brunch #dataBrunch .producto img {
     width: 100%;
@@ -370,7 +376,7 @@ body {
     flex-grow: 1;
 }
 #Tortas #dataTortas {
-    height: calc(100vh - 98px);
+    min-height: calc(100vh - 98px);
 }
 /* Sandwiches */
 #Sandwiches {
@@ -569,6 +575,30 @@ body {
 @media only screen and (max-width: 460px) {
     html{
         font-size: 85%;
+    }
+    #Cafetería .pie {
+        margin-top: 70px;
+    }
+}
+@media only screen and (max-width: 420px) {
+    html{
+        font-size: 70%;
+    }
+    #Cafetería .pie {
+        margin-top: 70px;
+    }
+}
+@media only screen and (max-width: 360px) {
+    html{
+        font-size: 65%;
+    }
+    #Cafetería .pie {
+        margin-top: 70px;
+    }
+}
+@media only screen and (max-width: 320px) {
+    html{
+        font-size: 55%;
     }
     #Cafetería .pie {
         margin-top: 70px;
