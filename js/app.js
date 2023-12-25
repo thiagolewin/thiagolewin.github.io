@@ -43,9 +43,9 @@ searchBarFalso.addEventListener("focus",(e)=> {
   searchBar.focus()
 })
 searchBar.addEventListener("input",(e)=> {
-  var h5Element = document.querySelectorAll('.yellow');
-  for(let i = 0;i<h5Element.length;i++) {
-      h5Element[i].parentElement.replaceChild(document.createTextNode(h5Element[i].textContent),h5Element[i]);
+  var aElement = document.querySelectorAll('.yellow');
+  for(let i = 0;i<aElement.length;i++) {
+      aElement[i].parentElement.replaceChild(document.createTextNode(aElement[i].textContent),aElement[i]);
   }
   var textoBuscado = e.target.value.toLowerCase()
   if(textoBuscado.length != 0) {
@@ -95,8 +95,8 @@ const Cafeteria = (datos)=>{
      <h3>${categoria}</h3>
      <div class="NombrePrecio">`
      subDatos[categoria].forEach(element => {
-       content+= `<div class="producto"><h5 class="nameProduct">${element.Nombre}</h5>
-       <h5 class="precio">$${element.Precio}</h5></div>`
+       content+= `<div class="producto"><a class="nameProduct" href="/product?name=${element.Nombre}&descripcion=${element.Descripcion}&foto=${element.Foto}">${element.Nombre}</a>
+       <a class="precio">$${element.Precio}</a></div>`
      })
      content += '</div> </div>'
    }
@@ -115,8 +115,8 @@ const Cafeteria = (datos)=>{
     if(element.Descripcion == '/img/cafe.png') {
       content+= `<div class="producto"> <img class="foto" src="${element.Descripcion}"></div>`
     } else {
-      content+= `<div class="producto"> <div class="priceName"><h5 class="nameProduct">${element.Nombre}</h5>
-      <h5 class="precio">$${element.Precio}</h5></div><h4>${element.Descripcion}</h4></div>`
+      content+= `<div class="producto"> <div class="priceName"><a class="nameProduct" href="/product?name=${element.Nombre}&descripcion=${element.Descripcion}&foto=${element.Foto}">${element.Nombre}</a>
+      <a class="precio">$${element.Precio}</a></div><h4>${element.Descripcion}</h4></div>`
     }
    })
    content += '</div></div>'
@@ -135,8 +135,8 @@ const Cafeteria = (datos)=>{
      if(element.Descripcion == '/img/frut.png' || element.Descripcion == '/img/ham.png') {
        content+= `<div class="producto"> <img class="foto" src="${element.Descripcion}"></div>`
      } else {
-       content+= `<div class="producto"> <div class="priceName"><h5 class="nameProduct">${element.Nombre}</h5>
-       <h5 class="precio">$${element.Precio}</h5></div><h4>${element.Descripcion}</h4></div>`
+       content+= `<div class="producto"> <div class="priceName"><a class="nameProduct" href="/product?name=${element.Nombre}&descripcion=${element.Descripcion}&foto=${element.Foto}">${element.Nombre}</a>
+       <a class="precio">$${element.Precio}</a></div><h4>${element.Descripcion}</h4></div>`
      }
     })
     content += '</div></div>'
@@ -164,8 +164,8 @@ const Cafeteria = (datos)=>{
         <div class="NombrePrecio">`
       }
        subDatos[categoria].forEach(element => {
-         content+= `<div class="producto"><h5 class="nameProduct">${element.Nombre}</h5>
-         <h5 class="precio">$${element.Precio}</h5></div>`
+         content+= `<div class="producto"><a class="nameProduct" href="/product?name=${element.Nombre}&descripcion=${element.Descripcion}&foto=${element.Foto}">${element.Nombre}</a>
+         <a class="precio">$${element.Precio}</a></div>`
        })
        content += '</div> </div>'
      }
@@ -182,8 +182,8 @@ const Cafeteria = (datos)=>{
       content += `<div class="Datos"> 
         <div class="NombrePrecio">`
       resultados.forEach(element => {
-         content+= `<div class="producto"> <h5 class="nameProduct">${element.Nombre}</h5>
-         <h5 class="precio">$${element.Precio}</h5></div>`
+         content+= `<div class="producto"> <a class="nameProduct">${element.Nombre}</a>
+         <a class="precio">$${element.Precio}</a></div>`
       })
       content += '</div></div><img class="foto" src="/img/torta.png">'
       data.innerHTML = content;
@@ -198,8 +198,8 @@ const Cafeteria = (datos)=>{
         content += `<div class="Datos"> 
           <div class="NombrePrecio">`
         resultados.forEach(element => {
-           content+= `<div class="producto"> <div class="priceName"><h5 class="nameProduct">${element.Nombre}</h5>
-           <h5 class="precio">$${element.Precio}</h5></div><h4>${element.Descripcion}</h4></div>`
+           content+= `<div class="producto"> <div class="priceName"><a class="nameProduct" href="/product?name=${element.Nombre}&descripcion=${element.Descripcion}&foto=${element.Foto}">${element.Nombre}</a>
+           <a class="precio">$${element.Precio}</a></div><h4>${element.Descripcion}</h4></div>`
         })
         content += '</div></div>'
         data.innerHTML = content;
@@ -227,8 +227,8 @@ const Cafeteria = (datos)=>{
           }
            
            subDatos[categoria].forEach(element => {
-             content+= `<div class="producto"> <div class="priceName"><h5 class="nameProduct">${element.Nombre}</h5>
-             <h5 class="precio">$${element.Precio}</h5></div><h4>${element.Descripcion}</h4></div>`
+             content+= `<div class="producto"> <div class="priceName"><a class="nameProduct" href="/product?name=${element.Nombre}&descripcion=${element.Descripcion}&foto=${element.Foto}">${element.Nombre}</a>
+             <a class="precio">$${element.Precio}</a></div><h4>${element.Descripcion}</h4></div>`
            })
            content += '</div> </div>'
          }
@@ -256,15 +256,15 @@ const Cafeteria = (datos)=>{
             <div class="NombrePrecio">`
             subDatos[categoria].forEach(element => {
               if(element.Nombre == "BOTELLA") {
-                content+= `<div class="producto"> <div class="priceName"><h5 class="nameProduct">${element.Nombre}</h5>
-                <h5 class="precio">$${element.Precio}</h5></div><h4 class="max">${element.Descripcion}</h4></div>`
+                content+= `<div class="producto"> <div class="priceName"><a class="nameProduct" href="/product?name=${element.Nombre}&descripcion=${element.Descripcion}&foto=${element.Foto}">${element.Nombre}</a>
+                <a class="precio">$${element.Precio}</a></div><h4 class="max">${element.Descripcion}</h4></div>`
               } else if(element.Nombre == "ADICIONALES") {
-                content+= `<div class="flechaAdi"><div class="flechaContainer"><img src="/img/flecha.png" class="flecha"></div><div class="producto derecha"> <div class="priceName"><h5 class="nameProduct">${element.Nombre}</h5>
-                <h5 class="precio">+$${element.Precio}</h5></div><h4 class="max">${element.Descripcion}</h4></div></div>`
+                content+= `<div class="flechaAdi"><div class="flechaContainer"><img src="/img/flecha.png" class="flecha"></div><div class="producto derecha"> <div class="priceName"><a class="nameProduct" href="/product?name=${element.Nombre}&descripcion=${element.Descripcion}&foto=${element.Foto}">${element.Nombre}</a>
+                <a class="precio">+$${element.Precio}</a></div><h4 class="max">${element.Descripcion}</h4></div></div>`
               } 
               else {
-                content+= `<div class="producto"><div class="priceName"><h5 class="nameProduct">${element.Nombre}</h5>
-                <h5 class="precio">$${element.Precio}</h5></div></div>`
+                content+= `<div class="producto"><div class="priceName"><a class="nameProduct" href="/product?name=${element.Nombre}&descripcion=${element.Descripcion}&foto=${element.Foto}">${element.Nombre}</a>
+                <a class="precio">$${element.Precio}</a></div></div>`
               }
             })
             content += '</div> </div>'
@@ -273,8 +273,8 @@ const Cafeteria = (datos)=>{
             <h2>${categoria}</h2>
             <div class="NombrePrecio">`
             subDatos[categoria].forEach(element => {
-              content+= `<div class="producto"> <div class="priceName"><h5 class="nameProduct">${element.Nombre}</h5>
-              <h5 class="precio">$${element.Precio}</h5></div><h4>${element.Descripcion}</h4><h4 class="consultar">Consultar disponibilidad.</h4></div>`
+              content+= `<div class="producto"> <div class="priceName"><a class="nameProduct" href="/product?name=${element.Nombre}&descripcion=${element.Descripcion}&foto=${element.Foto}">${element.Nombre}</a>
+              <a class="precio">$${element.Precio}</a></div><h4>${element.Descripcion}</h4><h4 class="consultar">Consultar disponibilidad.</h4></div>`
             })
             content += '</div> </div>'
           } else if (categoria == "BEBIDAS") {
@@ -282,8 +282,8 @@ const Cafeteria = (datos)=>{
             <h2 class="menor">${categoria}</h2>
             <div class="NombrePrecio">`
             subDatos[categoria].forEach(element => {
-              content+= `<div class="producto"><h5 class="nameProduct">${element.Nombre}</h5>
-              <h5 class="precio">$${element.Precio}</h5></div>`
+              content+= `<div class="producto"><a class="nameProduct" href="/product?name=${element.Nombre}&descripcion=${element.Descripcion}&foto=${element.Foto}">${element.Nombre}</a>
+              <a class="precio">$${element.Precio}</a></div>`
             })
             content += '</div> </div>'
           } else if (categoria == "BEBIDAS C/ALCOHOL") {
@@ -291,8 +291,8 @@ const Cafeteria = (datos)=>{
             <h2 class="menor">${categoria}</h2>
             <div class="NombrePrecio">`
             subDatos[categoria].forEach(element => {
-              content+= `<div class="producto"><h5 class="nameProduct">${element.Nombre}</h5>
-              <h5 class="precio">$${element.Precio}</h5></div>`
+              content+= `<div class="producto"><a class="nameProduct" href="/product?name=${element.Nombre}&descripcion=${element.Descripcion}&foto=${element.Foto}">${element.Nombre}</a>
+              <a class="precio">$${element.Precio}</a></div>`
             })
             content += '</div> </div></div>'
           }

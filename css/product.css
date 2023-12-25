@@ -1,0 +1,93 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('/img/titulo.png');
+    background-position: center;
+    background-size: cover;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(212,210,207,255);
+    opacity: 0.9;
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    width: 80%;
+}
+.container img {
+    width: 100%;
+    height: auto;
+}
+.container h1{
+    font-family: 'Glacial Indifference', sans-serif;
+    font-size: 2em;
+    font-weight: 900;
+    margin-top: 30px;
+    color: black;
+}
+.container h2 {
+    font-family: 'Glacial Indifference', sans-serif;
+    font-size: 1.5em;
+    font-weight: 200;
+    padding: 30px 20px;
+    color: black;
+}
+.contact-form {
+    margin-top: 20px;
+    width: 90%;
+    font-family: 'Glacial Indifference', sans-serif;
+}
+.contact-form .heading {
+    font-size: 1.3em;
+    color: black;
+    ;
+    margin-bottom: 12px;
+    font-weight: bold;
+    display: block;
+}
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .contact-form label {
+    margin-bottom: 10px;
+  }
+  textarea {
+    resize: none;
+    height: 40px;
+    width: 100%;
+  }
+  .contact-form input, .contact-form textarea {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+  .contact-form input:focus, .contact-form textarea:focus {
+    outline: none;
+    box-shadow: 0 0 5px #ff6384;
+    transform: scale(1.05);
+    transition: transform 0.3s ease-in-out;
+  }
+  .contact-form button[type="submit"] {
+    background-color: rgb(89, 84, 76);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 20px;
+  }
+  .contact-form button[type="submit"]:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease-in-out;
+  }

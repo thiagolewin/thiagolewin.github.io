@@ -8,6 +8,7 @@
     font-family: "Anteb Alt Black";
     text-decoration: none;
     scroll-behavior: smooth;
+    color: black;
 }
 html {
 }
@@ -60,7 +61,7 @@ body {
     color: black;
 }
 .burger {
-    z-index: 10000000000;
+    z-index: 1000000000000000000000000000000000;
     position: fixed;
     top: 15px;
     left: 15px;
