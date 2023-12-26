@@ -15,7 +15,7 @@ function searchInTextContent(elemento, textoBuscado) {
   return elemento.textContent.toLowerCase().includes(textoBuscado);
 }
 let cont = 0;
-window.addEventListener("click",(e)=> {
+window.addEventListener("touchstart",(e)=> {
   lastElementTouched = e.target
   if(!(e.target.classList.contains("cerra"))) {
     ham.checked = false;
@@ -33,7 +33,7 @@ window.addEventListener("click",(e)=> {
     searchGeneral.style.top = (window.innerHeight / 10) + "px";
   }
 })
-ham.addEventListener("click",(e)=> {
+ham.addEventListener("touchstart",(e)=> {
   menu.classList.toggle("venir")
 })
 
@@ -61,7 +61,8 @@ searchBarFalso.addEventListener("focus",(e)=> {
   searchGeneral.style.top = (window.scrollY + window.innerHeight / 10) + "px";
   searchGeneral.style.position ="absolute"
 })
-searchBar.addEventListener("click",(e)=> {
+searchBar.addEventListener("touchstart",(e)=> {
+  console.log("e")
   inputH6.style.display = "flex"
   flechas.style.display = "flex"
   searchGeneral.style.position ="absolute"
@@ -121,7 +122,7 @@ searchBar.addEventListener("input",function inputFun(e){
   }
 }
 })
-flechaIzq.addEventListener("click",()=> {
+flechaIzq.addEventListener("touchstart",()=> {
   var aElement = document.querySelectorAll('.yellow');
   for(let i = 0;i<aElement.length;i++) {
       aElement[i].parentElement.replaceChild(document.createTextNode(aElement[i].textContent),aElement[i]);
@@ -166,7 +167,7 @@ flechaIzq.addEventListener("click",()=> {
   searchGeneral.style.top = (window.scrollY + window.innerHeight / 10) + "px";
   }
 })
-flechaDer.addEventListener("click",()=> {
+flechaDer.addEventListener("touchstart",()=> {
   var aElement = document.querySelectorAll('.yellow');
   for(let i = 0;i<aElement.length;i++) {
       aElement[i].parentElement.replaceChild(document.createTextNode(aElement[i].textContent),aElement[i]);
