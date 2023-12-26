@@ -23,7 +23,7 @@ window.addEventListener("click",(e)=> {
     searchGeneral.style.top= "10vh"
     inputH6.style.display = "none"
     flechas.style.display = "none"
-    searchGeneral.style.position ="absolute"
+    searchGeneral.style.position ="fixed"
   }
 
 })
