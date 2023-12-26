@@ -20,7 +20,7 @@ window.addEventListener("click",(e)=> {
     menu.classList.remove("venir")
   }
   if(!(e.target.classList.contains("cerraInput")) && !(e.target.tagName === 'INPUT')) {
-    searchGeneral.style.top= "10vh"
+    searchGeneral.style.top = (window.scrollY + window.innerHeight / 10) + "px";
     inputH6.style.display = "none"
     flechas.style.display = "none"
     searchGeneral.style.position ="absolute"
@@ -33,6 +33,7 @@ ham.addEventListener("click",(e)=> {
 
 window.addEventListener("scroll",()=> {
   console.log(window.scrollY)
+  searchGeneral.style.position ="absolute"
   searchGeneral.style.top = (window.scrollY + window.innerHeight / 10) + "px";
 if (window.innerHeight > window.scrollY) {
   if(ham.checked) {
@@ -48,17 +49,17 @@ searchBarFalso.addEventListener("focus",(e)=> {
   searchBar.focus()
   inputH6.style.display = "flex"
   flechas.style.display = "flex"
-  searchGeneral.style.top= "10vh"
+  searchGeneral.style.top = (window.scrollY + window.innerHeight / 10) + "px";
   searchGeneral.style.position ="absolute"
 })
 searchBar.addEventListener("click",(e)=> {
   inputH6.style.display = "flex"
   flechas.style.display = "flex"
   searchGeneral.style.position ="absolute"
-  searchGeneral.style.top= "10vh"
+  searchGeneral.style.top = (window.scrollY + window.innerHeight / 10) + "px";
 })
 searchBar.addEventListener("input",function inputFun(e){
-  e.target.style.top= "10vh"
+  searchGeneral.style.top = (window.scrollY + window.innerHeight / 10) + "px";
   cont = 0
   var aElement = document.querySelectorAll('.yellow');
   for(let i = 0;i<aElement.length;i++) {
