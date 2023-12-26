@@ -2,47 +2,62 @@
 const ham = document.getElementById("burger")
 const labelHam = document.querySelector(".burger")
 const menu = document.querySelector(".menu")
+const searchGeneral = document.querySelector(".input")
 const searchBar = document.getElementById("searchBar")
 const searchBarFalso = document.getElementById("searchBarFalso")
 const linkmenu = document.querySelectorAll(".linkmenu")
-for(let i = 0;i<linkmenu.length;i++) {
-  linkmenu[i].addEventListener("click",(e)=> {
-    event.stopPropagation()
-    if(ham.checked) {
-      ham.checked = false;
-      menu.classList.remove("venir")
-    }
-  })
+const flechas = document.querySelector(".flechas")
+const flechaIzq = document.querySelector(".left")
+const flechaDer = document.querySelector(".right")
+const inputH6 = document.querySelector(".inputH6")
+function searchInTextContent(elemento, textoBuscado) {
+  return elemento.textContent.toLowerCase().includes(textoBuscado);
 }
-
+let cont = 0;
 window.addEventListener("click",(e)=> {
-    if(ham.checked) {
-      ham.checked = false;
-      menu.classList.remove("venir")
-    }
-    event.stopPropagation()
+  if(!(e.target.classList.contains("cerra"))) {
+    ham.checked = false;
+    menu.classList.remove("venir")
+  }
+  if(!(e.target.classList.contains("cerraInput")) && !(e.target.tagName === 'INPUT')) {
+    searchGeneral.style.top= "10vh"
+    inputH6.style.display = "none"
+    flechas.style.display = "none"
+    searchGeneral.style.position ="absolute"
+  }
 
 })
-ham.addEventListener("click",()=> {
+ham.addEventListener("click",(e)=> {
   menu.classList.toggle("venir")
-  event.stopPropagation()
 })
 
 window.addEventListener("scroll",()=> {
-  if (window.innerHeight > window.scrollY) {
-    if(ham.checked) {
-      ham.checked = false;
-    }
-    labelHam.style.display = "none"
-    menu.classList.remove("venir")
-  } else {
-    labelHam.style.display = "block"
+if (window.innerHeight > window.scrollY) {
+  if(ham.checked) {
+    ham.checked = false;
   }
+  labelHam.style.display = "none"
+  menu.classList.remove("venir")
+} else {
+  labelHam.style.display = "block"
+}
 })
 searchBarFalso.addEventListener("focus",(e)=> {
   searchBar.focus()
+  inputH6.style.display = "flex"
+  flechas.style.display = "flex"
+  searchGeneral.style.top= "10px"
+  searchGeneral.style.position ="fixed"
 })
-searchBar.addEventListener("input",(e)=> {
+searchBar.addEventListener("click",(e)=> {
+  inputH6.style.display = "flex"
+  flechas.style.display = "flex"
+  searchGeneral.style.position ="fixed"
+  searchGeneral.style.top= "10px"
+})
+searchBar.addEventListener("input",function inputFun(e){
+  e.target.style.top= "10px"
+  cont = 0
   var aElement = document.querySelectorAll('.yellow');
   for(let i = 0;i<aElement.length;i++) {
       aElement[i].parentElement.replaceChild(document.createTextNode(aElement[i].textContent),aElement[i]);
@@ -50,33 +65,135 @@ searchBar.addEventListener("input",(e)=> {
   var textoBuscado = e.target.value.toLowerCase()
   if(textoBuscado.length != 0) {
 
-  function searchInTextContent(elemento, textoBuscado) {
-    return elemento.textContent.toLowerCase().includes(textoBuscado);
-  }
   var todosLosElementos = document.querySelectorAll(".nameProduct, h4, h2");
   var elementosCoincidentes = Array.from(todosLosElementos).filter(function(elemento) {
     return searchInTextContent(elemento, textoBuscado);
   });
+  if (elementosCoincidentes.length == 0) {
+    inputH6.textContent = 0 + "/" + 0
+  } else {
+    inputH6.textContent = cont+1 + "/" + elementosCoincidentes.length
+  }
   if (elementosCoincidentes.length > 0) {
-    const elementoCoincidente = elementosCoincidentes[0];
-    const posicionAjustada = elementoCoincidente.getBoundingClientRect().top + window.scrollY - 90;
+    function encontrarPadrePorTag(elemento, nombreTag) {
+      let padre = elemento.parentNode;
+    
+      while (padre && !(padre.classList.contains("secID"))) {
+        padre = padre.parentNode;
+      }
+    
+      return padre;
+    }
+    var elementoPadreSection = encontrarPadrePorTag(elementosCoincidentes[cont], 'section');
+    console.log(elementoPadreSection)
+    var rect = elementoPadreSection.getBoundingClientRect();
+    const posicionAjustada = rect.top + window.scrollY;
+    console.log(rect.top + window.scrollY)
     window.scrollTo({
       top: posicionAjustada,
       behavior: 'smooth' 
     });
   }
-  for(let i = 0; i<elementosCoincidentes.length;i++) {
-    const highlightedText = elementosCoincidentes[i].textContent.replace(
+    const highlightedText = elementosCoincidentes[cont].textContent.replace(
       new RegExp(textoBuscado, 'gi'),
       match => `<span class="yellow">${match}</span>`
   );
 
   // Mostrar el texto resaltado
-  elementosCoincidentes[i].innerHTML = highlightedText;
-  }
+  elementosCoincidentes[cont].innerHTML = highlightedText;
+
 }
 })
+flechaIzq.addEventListener("click",()=> {
+  var aElement = document.querySelectorAll('.yellow');
+  for(let i = 0;i<aElement.length;i++) {
+      aElement[i].parentElement.replaceChild(document.createTextNode(aElement[i].textContent),aElement[i]);
+  }
+  cont-=1
+  if(cont == -1) {
+    cont = 0
+  }
+  var todosLosElementos = document.querySelectorAll(".nameProduct, h4, h2");
+  var elementosCoincidentes = Array.from(todosLosElementos).filter(function(elemento) {
+    return searchInTextContent(elemento, searchBar.value);
+  });
+  if (elementosCoincidentes.length == 0) {
+    inputH6.textContent = 0 + "/" + 0
+  } else {
+    inputH6.textContent = cont+1 + "/" + elementosCoincidentes.length
+  }
+  if (elementosCoincidentes.length > 0) {
+    function encontrarPadrePorTag(elemento, nombreTag) {
+      let padre = elemento.parentNode;
+    
+      while (padre && !(padre.classList.contains("secID"))) {
+        padre = padre.parentNode;
+      }
+    
+      return padre;
+    }
+    var elementoPadreSection = encontrarPadrePorTag(elementosCoincidentes[cont], 'section');
+    console.log(elementoPadreSection)
+    var rect = elementoPadreSection.getBoundingClientRect();
+    const posicionAjustada = rect.top + window.scrollY;
+    window.scrollTo({
+      top: posicionAjustada,
+      behavior: 'smooth' 
+    });
+    const highlightedText = elementosCoincidentes[cont].textContent.replace(
+      new RegExp(searchBar.value, 'gi'),
+      match => `<span class="yellow">${match}</span>`
+  );
 
+  // Mostrar el texto resaltado
+  elementosCoincidentes[cont].innerHTML = highlightedText;
+  }
+})
+flechaDer.addEventListener("click",()=> {
+  var aElement = document.querySelectorAll('.yellow');
+  for(let i = 0;i<aElement.length;i++) {
+      aElement[i].parentElement.replaceChild(document.createTextNode(aElement[i].textContent),aElement[i]);
+  }
+  cont+=1
+  var todosLosElementos = document.querySelectorAll(".nameProduct, h4, h2");
+  var elementosCoincidentes = Array.from(todosLosElementos).filter(function(elemento) {
+    return searchInTextContent(elemento, searchBar.value);
+  });
+  if(cont >=elementosCoincidentes.length) {
+    cont = 0
+  }
+  if (elementosCoincidentes.length == 0) {
+    inputH6.textContent = 0 + "/" + 0
+  } else {
+    inputH6.textContent = cont+1 + "/" + elementosCoincidentes.length
+  }
+  if (elementosCoincidentes.length > 0) {
+    function encontrarPadrePorTag(elemento, nombreTag) {
+      let padre = elemento.parentNode;
+    
+      while (padre && !(padre.classList.contains("secID"))) {
+        padre = padre.parentNode;
+      }
+    
+      return padre;
+    }
+    var elementoPadreSection = encontrarPadrePorTag(elementosCoincidentes[cont], 'section');
+    var rect = elementoPadreSection.getBoundingClientRect();
+    const posicionAjustada = rect.top + window.scrollY;
+    console.log(rect.top + window.scrollY)
+    window.scrollTo({
+      top: posicionAjustada,
+      behavior: 'smooth' 
+    });
+    const highlightedText = elementosCoincidentes[cont].textContent.replace(
+      new RegExp(searchBar.value, 'gi'),
+      match => `<span class="yellow">${match}</span>`
+  );
+
+  // Mostrar el texto resaltado
+  elementosCoincidentes[cont].innerHTML = highlightedText;
+  }
+})
 
 
 const Cafeteria = (datos)=>{
