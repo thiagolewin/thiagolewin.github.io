@@ -49,12 +49,12 @@ searchBarFalso.addEventListener("focus",(e)=> {
   inputH6.style.display = "flex"
   flechas.style.display = "flex"
   searchGeneral.style.top= "10vh"
-  searchGeneral.style.position ="fixed"
+  searchGeneral.style.position ="absolute"
 })
 searchBar.addEventListener("click",(e)=> {
   inputH6.style.display = "flex"
   flechas.style.display = "flex"
-  searchGeneral.style.position ="fixed"
+  searchGeneral.style.position ="absolute"
   searchGeneral.style.top= "10vh"
 })
 searchBar.addEventListener("input",function inputFun(e){
