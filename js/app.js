@@ -23,7 +23,7 @@ window.addEventListener("click",(e)=> {
     searchGeneral.style.top= "10vh"
     inputH6.style.display = "none"
     flechas.style.display = "none"
-    searchGeneral.style.position ="fixed"
+    searchGeneral.style.position ="absolute"
   }
 
 })
@@ -32,6 +32,8 @@ ham.addEventListener("click",(e)=> {
 })
 
 window.addEventListener("scroll",()=> {
+  console.log(window.scrollY)
+  searchGeneral.style.top = (window.scrollY + window.innerHeight / 10) + "px";
 if (window.innerHeight > window.scrollY) {
   if(ham.checked) {
     ham.checked = false;
