@@ -15,7 +15,7 @@ function searchInTextContent(elemento, textoBuscado) {
   return elemento.textContent.toLowerCase().includes(textoBuscado);
 }
 let cont = 0;
-window.addEventListener("touchstart",(e)=> {
+window.addEventListener("click",(e)=> {
   lastElementTouched = e.target
   if(!(e.target.classList.contains("cerra"))) {
     ham.checked = false;
@@ -33,7 +33,7 @@ window.addEventListener("touchstart",(e)=> {
     searchGeneral.style.top = (window.innerHeight / 10) + "px";
   }
 })
-ham.addEventListener("touchstart",(e)=> {
+ham.addEventListener("click",(e)=> {
   menu.classList.toggle("venir")
 })
 
@@ -61,7 +61,7 @@ searchBarFalso.addEventListener("focus",(e)=> {
   searchGeneral.style.top = (window.scrollY + window.innerHeight / 10) + "px";
   searchGeneral.style.position ="absolute"
 })
-searchBar.addEventListener("touchstart",(e)=> {
+searchBar.addEventListener("click",(e)=> {
   console.log("e")
   inputH6.style.display = "flex"
   flechas.style.display = "flex"
@@ -122,7 +122,7 @@ searchBar.addEventListener("input",function inputFun(e){
   }
 }
 })
-flechaIzq.addEventListener("touchstart",()=> {
+flechaIzq.addEventListener("click",()=> {
   var aElement = document.querySelectorAll('.yellow');
   for(let i = 0;i<aElement.length;i++) {
       aElement[i].parentElement.replaceChild(document.createTextNode(aElement[i].textContent),aElement[i]);
@@ -133,7 +133,7 @@ flechaIzq.addEventListener("touchstart",()=> {
   }
   var todosLosElementos = document.querySelectorAll(".nameProduct, h4, h2");
   var elementosCoincidentes = Array.from(todosLosElementos).filter(function(elemento) {
-    return searchInTextContent(elemento, searchBar.value);
+    return searchInTextContent(elemento, searchBar.value.toLowerCase());
   });
   if (elementosCoincidentes.length == 0) {
     inputH6.textContent = 0 + "/" + 0
@@ -158,7 +158,7 @@ flechaIzq.addEventListener("touchstart",()=> {
       behavior: 'smooth' 
     });
     const highlightedText = elementosCoincidentes[cont].textContent.replace(
-      new RegExp(searchBar.value, 'gi'),
+      new RegExp(searchBar.value.toLowerCase(), 'gi'),
       match => `<span class="yellow">${match}</span>`
   );
 
@@ -167,7 +167,7 @@ flechaIzq.addEventListener("touchstart",()=> {
   searchGeneral.style.top = (window.scrollY + window.innerHeight / 10) + "px";
   }
 })
-flechaDer.addEventListener("touchstart",()=> {
+flechaDer.addEventListener("click",()=> {
   var aElement = document.querySelectorAll('.yellow');
   for(let i = 0;i<aElement.length;i++) {
       aElement[i].parentElement.replaceChild(document.createTextNode(aElement[i].textContent),aElement[i]);
@@ -175,7 +175,7 @@ flechaDer.addEventListener("touchstart",()=> {
   cont+=1
   var todosLosElementos = document.querySelectorAll(".nameProduct, h4, h2");
   var elementosCoincidentes = Array.from(todosLosElementos).filter(function(elemento) {
-    return searchInTextContent(elemento, searchBar.value);
+    return searchInTextContent(elemento, searchBar.value.toLowerCase());
   });
   if(cont >=elementosCoincidentes.length) {
     cont = 0
@@ -203,7 +203,7 @@ flechaDer.addEventListener("touchstart",()=> {
       behavior: 'smooth' 
     });
     const highlightedText = elementosCoincidentes[cont].textContent.replace(
-      new RegExp(searchBar.value, 'gi'),
+      new RegExp(searchBar.value.toLowerCase(), 'gi'),
       match => `<span class="yellow">${match}</span>`
   );
 
