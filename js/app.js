@@ -73,6 +73,7 @@ searchBar.addEventListener("click",(e)=> {
   }
 })
 searchBar.addEventListener("input",function inputFun(e){
+  searchBar.value = searchBar.value.toLowerCase()
   cont = 0
   var aElement = document.querySelectorAll('.yellow');
   for(let i = 0;i<aElement.length;i++) {
