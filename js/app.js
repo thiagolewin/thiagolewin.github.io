@@ -46,17 +46,17 @@ searchBarFalso.addEventListener("focus",(e)=> {
   searchBar.focus()
   inputH6.style.display = "flex"
   flechas.style.display = "flex"
-  searchGeneral.style.top= "10px"
+  searchGeneral.style.top= "10vh"
   searchGeneral.style.position ="fixed"
 })
 searchBar.addEventListener("click",(e)=> {
   inputH6.style.display = "flex"
   flechas.style.display = "flex"
   searchGeneral.style.position ="fixed"
-  searchGeneral.style.top= "10px"
+  searchGeneral.style.top= "10vh"
 })
 searchBar.addEventListener("input",function inputFun(e){
-  e.target.style.top= "10px"
+  e.target.style.top= "10vh"
   cont = 0
   var aElement = document.querySelectorAll('.yellow');
   for(let i = 0;i<aElement.length;i++) {
