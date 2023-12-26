@@ -586,6 +586,7 @@ body {
 #Redes {
     background-image: url('/img/titulo.png');
     justify-content: center;
+    max-height: 100vh;
 }
 #Redes #dataRedes {
     display: flex;
