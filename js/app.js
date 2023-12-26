@@ -10,11 +10,13 @@ const flechas = document.querySelector(".flechas")
 const flechaIzq = document.querySelector(".left")
 const flechaDer = document.querySelector(".right")
 const inputH6 = document.querySelector(".inputH6")
+let lastElementTouched
 function searchInTextContent(elemento, textoBuscado) {
   return elemento.textContent.toLowerCase().includes(textoBuscado);
 }
 let cont = 0;
 window.addEventListener("click",(e)=> {
+  lastElementTouched = e.target
   if(!(e.target.classList.contains("cerra"))) {
     ham.checked = false;
     menu.classList.remove("venir")
@@ -25,16 +27,18 @@ window.addEventListener("click",(e)=> {
     flechas.style.display = "none"
     searchGeneral.style.position ="absolute"
   }
-
+  if(document.activeElement === searchBar || lastElementTouched === flechaIzq || lastElementTouched === flechaDer) {
+    searchGeneral.style.top = (window.scrollY + window.innerHeight / 10) + "px";
+  } else {
+    searchGeneral.style.top = (window.innerHeight / 10) + "px";
+  }
 })
 ham.addEventListener("click",(e)=> {
   menu.classList.toggle("venir")
 })
 
 window.addEventListener("scroll",()=> {
-  console.log(window.scrollY)
   searchGeneral.style.position ="absolute"
-  searchGeneral.style.top = (window.scrollY + window.innerHeight / 10) + "px";
 if (window.innerHeight > window.scrollY) {
   if(ham.checked) {
     ham.checked = false;
@@ -43,6 +47,11 @@ if (window.innerHeight > window.scrollY) {
   menu.classList.remove("venir")
 } else {
   labelHam.style.display = "block"
+}
+if(document.activeElement === searchBar || lastElementTouched === flechaIzq || lastElementTouched === flechaDer) {
+  searchGeneral.style.top = (window.scrollY + window.innerHeight / 10) + "px";
+} else {
+  searchGeneral.style.top = (window.innerHeight / 10) + "px";
 }
 })
 searchBarFalso.addEventListener("focus",(e)=> {
@@ -56,10 +65,13 @@ searchBar.addEventListener("click",(e)=> {
   inputH6.style.display = "flex"
   flechas.style.display = "flex"
   searchGeneral.style.position ="absolute"
-  searchGeneral.style.top = (window.scrollY + window.innerHeight / 10) + "px";
+  if(document.activeElement === searchBar || document.activeElement === flechaIzq || document.activeElement === flechaDer) {
+    searchGeneral.style.top = (window.scrollY + window.innerHeight / 10) + "px";
+  } else {
+    searchGeneral.style.top = (window.innerHeight / 10) + "px";
+  }
 })
 searchBar.addEventListener("input",function inputFun(e){
-  searchGeneral.style.top = (window.scrollY + window.innerHeight / 10) + "px";
   cont = 0
   var aElement = document.querySelectorAll('.yellow');
   for(let i = 0;i<aElement.length;i++) {
@@ -88,10 +100,8 @@ searchBar.addEventListener("input",function inputFun(e){
       return padre;
     }
     var elementoPadreSection = encontrarPadrePorTag(elementosCoincidentes[cont], 'section');
-    console.log(elementoPadreSection)
     var rect = elementoPadreSection.getBoundingClientRect();
     const posicionAjustada = rect.top + window.scrollY;
-    console.log(rect.top + window.scrollY)
     window.scrollTo({
       top: posicionAjustada,
       behavior: 'smooth' 
@@ -104,7 +114,11 @@ searchBar.addEventListener("input",function inputFun(e){
 
   // Mostrar el texto resaltado
   elementosCoincidentes[cont].innerHTML = highlightedText;
-
+  if(document.activeElement === searchBar || document.activeElement === flechaIzq || document.activeElement === flechaDer) {
+    searchGeneral.style.top = (window.scrollY + window.innerHeight / 10) + "px";
+  } else {
+    searchGeneral.style.top = (window.innerHeight / 10) + "px";
+  }
 }
 })
 flechaIzq.addEventListener("click",()=> {
@@ -136,7 +150,6 @@ flechaIzq.addEventListener("click",()=> {
       return padre;
     }
     var elementoPadreSection = encontrarPadrePorTag(elementosCoincidentes[cont], 'section');
-    console.log(elementoPadreSection)
     var rect = elementoPadreSection.getBoundingClientRect();
     const posicionAjustada = rect.top + window.scrollY;
     window.scrollTo({
@@ -150,6 +163,7 @@ flechaIzq.addEventListener("click",()=> {
 
   // Mostrar el texto resaltado
   elementosCoincidentes[cont].innerHTML = highlightedText;
+  searchGeneral.style.top = (window.scrollY + window.innerHeight / 10) + "px";
   }
 })
 flechaDer.addEventListener("click",()=> {
@@ -183,7 +197,6 @@ flechaDer.addEventListener("click",()=> {
     var elementoPadreSection = encontrarPadrePorTag(elementosCoincidentes[cont], 'section');
     var rect = elementoPadreSection.getBoundingClientRect();
     const posicionAjustada = rect.top + window.scrollY;
-    console.log(rect.top + window.scrollY)
     window.scrollTo({
       top: posicionAjustada,
       behavior: 'smooth' 
@@ -195,6 +208,7 @@ flechaDer.addEventListener("click",()=> {
 
   // Mostrar el texto resaltado
   elementosCoincidentes[cont].innerHTML = highlightedText;
+  searchGeneral.style.top = (window.scrollY + window.innerHeight / 10) + "px";
   }
 })
 
