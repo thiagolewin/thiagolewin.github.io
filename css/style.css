@@ -646,10 +646,13 @@ body {
 /*Redes*/
 #Redes {
     background-image: url('/img/titulo.png');
-    justify-content: center;
+    justify-content: flex-start;
     max-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 #Redes #dataRedes {
+    margin-top: 100px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -672,9 +675,8 @@ body {
 }
 #Redes #dataRedes .datosWifi {
     display: flex;
-    position: absolute;
-    bottom: 20px;
     height: 80px;
+    margin-top: 100px;
     align-items: center;
 }
 #Redes #dataRedes .datosWifi img{
@@ -694,11 +696,6 @@ body {
 
 /*MediaQuerys */
 
-@media only screen and (max-width: 900px) {
-    #Cafetería,#Desayunos, #Brunch, #Patisserie, #Tortas, #Sandwiches, #Ensaladas, #Jugos, #Redes {
-        font-size: 110%;
-    }
-}
 @media only screen and (max-width: 590px) {
     html{
         font-size: 90%;
