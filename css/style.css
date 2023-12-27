@@ -265,7 +265,38 @@ body {
     max-width: 700px;
     width: 75%;
 }
-#Cafetería #dataCafeteria{
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#dataCafeteria{
     width: 100%;
     padding: 0px 60px;
     display: flex;
@@ -284,12 +315,9 @@ body {
     justify-content: space-between;
     margin-bottom: 5px;
 }
-#Patisserie #dataPatisserie .producto {
-    font-size: 0.9em;
-}
 #Cafetería #dataCafeteria .producto {
     margin-bottom: 2px;
-    font-size: 0.8em;
+    font-size: 13px;
 }
 #Cafetería #dataCafeteria .nameProduct, #Patisserie #dataPatisserie .nameProduct, #Tortas #dataTortas .nameProduct, #Ensaldas #dataEnsaladas .nameProduct, #Jugos #dataJugos .nameProduct {
     letter-spacing: 2px;
@@ -307,8 +335,12 @@ body {
     font-style: italic;
     font-family: 'Glacial Indifference', sans-serif;   
 }
+#Patisserie #dataPatisserie .producto {
+    font-size: 0.75em;
+}
 /*** DESAYUNOS */
 #Desayunos, #Brunch, #Patisserie, #Tortas, #Sandwiches, #Ensaladas, #Jugos, #Redes {
+    font-size: 105%;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -337,6 +369,7 @@ body {
 }
 #Desayunos #dataDesayunos, #Brunch #dataBrunch{
     min-height: calc(100vh - 148px);
+    justify-content: center;
     display: flex;
 }
 #Desayunos .NombrePrecio, #Brunch .NombrePrecio, #Sandwiches .NombrePrecio {
@@ -379,10 +412,10 @@ body {
     font-size: 1.2em;
     font-weight: 900;                                          
 }
-#Brunch #dataBrunch .producto h4, #Sandwiches #dataSandwiches .producto h4, #Ensaladas #dataEnsaladas .producto h4, #Jugos #dataJugos .producto h4 {
+#Sandwiches #dataSandwiches .producto h4, #Ensaladas #dataEnsaladas .producto h4, #Jugos #dataJugos .producto h4 {
     font-weight: 400;
     margin-top: 10px;
-    font-size: 0.9em;
+    font-size: 0.8em;
     letter-spacing: 1.45px;
     font-family: 'Glacial Indifference', sans-serif;
 }
@@ -390,18 +423,24 @@ body {
     margin-top: 3px;
 }
 #Desayunos #dataDesayunos .producto h4 {
+    max-width: 160px;
     font-weight: 400;
     margin-top: 10px;
-    font-size: 0.8em;
+    font-size: 0.75em;
+    letter-spacing: 1.45px;
+    font-family: 'Glacial Indifference', sans-serif;
+}
+#Brunch #dataBrunch .producto h4 {
+    max-width: 160px;
+    font-weight: 400;
+    margin-top: 10px;
+    font-size: 0.75em;
     letter-spacing: 1.45px;
     font-family: 'Glacial Indifference', sans-serif;
 }
 /*Brunch*/
 #Brunch {
     background-image: url('/img/brunch.png');
-}
-#Brunch .NombrePrecio {
-    grid-template-rows: repeat(4,1fr);
 }
 #Brunch #dataBrunch .producto img {
     width: 100%;
@@ -451,20 +490,21 @@ body {
 #Tortas #dataTortas {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    justify-content: space-between;
+    align-items:center;
 }
 #Tortas #dataTortas .Datos {
     width: 100%;
 }
 #Tortas #dataTortas .Datos .producto {
-    font-size: 1.2em;
+    font-size: 1em;
     margin-bottom: 15px;
 }
 #Tortas #dataTortas img {
-    max-width: 394px;
+    max-width: 200px;
     width: 70%;
+    margin-top: -50px;
     height: auto;
-    flex-grow: 1;
 }
 #Tortas #dataTortas {
     min-height: calc(100vh - 98px);
@@ -494,7 +534,7 @@ body {
     font-style: italic;
 }
 #Ensaladas #dataEnsaladas .producto h4, #Jugos #dataJugos .producto h4 {
-    font-size: 1em
+    font-size: 0.9em
 }
 #Sandwiches .NombrePrecio {
     margin-top: 0;
@@ -596,7 +636,7 @@ body {
     justify-content: space-between;
 }
 #Jugos #dataJugos .Bebidas .nameProduct {
-    font-size: 1em;
+    font-size: 0.95em;
     font-weight: 200;
 }
 #Jugos #dataJugos .Bebidas .precio {
@@ -653,9 +693,9 @@ body {
 }
 
 /*MediaQuerys */
-@media only screen and (max-width: 510px) {
+@media only screen and (max-width: 590px) {
     html{
-        font-size: 95%;
+        font-size: 90%;
     }
     #Cafetería .pie {
         margin-top: 30px;
@@ -667,26 +707,26 @@ body {
 }
 @media only screen and (max-width: 495px) {
     html{
-        font-size: 90%;
+        font-size: 85%;
     }
     #Cafetería .pie {
-        margin-top: 50px;
+        margin-top: 10px;
     }
 }
 @media only screen and (max-width: 460px) {
     html{
-        font-size: 85%;
+        font-size: 80%;
     }
     #Cafetería .pie {
-        margin-top: 70px;
+        margin-top: 10px;
     }
 }
 @media only screen and (max-width: 420px) {
     html{
-        font-size: 70%;
+        font-size: 75%;
     }
     #Cafetería .pie {
-        margin-top: 70px;
+        margin-top: 10px;
     }
     #Jugos .flecha {
         width: 100px;
@@ -695,17 +735,17 @@ body {
 }
 @media only screen and (max-width: 360px) {
     html{
-        font-size: 65%;
+        font-size: 70%;
     }
     #Cafetería .pie {
-        margin-top: 70px;
+        margin-top: 10px;
     }
 }
 @media only screen and (max-width: 320px) {
     html{
-        font-size: 55%;
+        font-size: 60%;
     }
     #Cafetería .pie {
-        margin-top: 70px;
+        margin-top: 10px;
     }
 }
