@@ -317,7 +317,7 @@ body {
 }
 #Cafetería #dataCafeteria .producto {
     margin-bottom: 2px;
-    font-size: 13px;
+    font-size: 12px;
 }
 #Cafetería #dataCafeteria .nameProduct, #Patisserie #dataPatisserie .nameProduct, #Tortas #dataTortas .nameProduct, #Ensaldas #dataEnsaladas .nameProduct, #Jugos #dataJugos .nameProduct {
     letter-spacing: 2px;
@@ -339,7 +339,7 @@ body {
     font-size: 0.75em;
 }
 /*** DESAYUNOS */
-#Desayunos, #Brunch, #Patisserie, #Tortas, #Sandwiches, #Ensaladas, #Jugos, #Redes {
+#Cafeteria,#Desayunos, #Brunch, #Patisserie, #Tortas, #Sandwiches, #Ensaladas, #Jugos, #Redes {
     font-size: 105%;
     min-height: 100vh;
     display: flex;
@@ -693,6 +693,12 @@ body {
 }
 
 /*MediaQuerys */
+
+@media only screen and (max-width: 900px) {
+    #Cafetería,#Desayunos, #Brunch, #Patisserie, #Tortas, #Sandwiches, #Ensaladas, #Jugos, #Redes {
+        font-size: 110%;
+    }
+}
 @media only screen and (max-width: 590px) {
     html{
         font-size: 90%;
